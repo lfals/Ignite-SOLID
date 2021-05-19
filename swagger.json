@@ -1,0 +1,120 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Atlas",
+    "description": "Essa documentação é sobre Atlas API",
+    "version": "1.0.0",
+    "contact": {
+      "email": "lucas.vanni@hotmail.com"
+    },
+    "paths": {
+      "/users": {
+        "get": {
+          "tags": ["Users"],
+          "summary": "Get all Users",
+          "description": "Get all Users registered",
+          "responses": {
+            "200": {
+              "description": "Users array",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "getUserByID": {
+          "tags": ["Users"],
+          "summary": "Get user by id",
+          "description": "Get user by id",
+          "parameters": ["9321831294712"],
+          "responses": {
+            "200": {
+              "description": "User",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": ["Users"],
+          "summary": "Create a user",
+          "description": "Create a new user",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "name": "John Doe",
+                    "email": "john@dow.com"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "User created"
+            },
+            "404": {
+              "description": "User already exists"
+            }
+          }
+        },
+        "patch": {
+          "tags": ["Users"],
+          "summary": "Update admin user",
+          "description": "Update admin user",
+          "parameters": ["9321831294712"],
+          "responses": {
+            "201": {
+              "description": "User created"
+            },
+            "404": {
+              "description": "User already exists"
+            }
+          }
+        }
+      }
+    }
+  }
+}
